@@ -30,4 +30,41 @@ Goal is to create an AWS account, setup a Linux server on AWS EC2 and deploy a s
   - use free SSL/TLS certificat from Let's Encrypt
 - create a CI/CD pipeline using AWS CodePipeline
   - use to deploy changes to your website
-  
+
+## Create AWS account or login
+Use this page to create or login to an account:
+`https://aws.amazon.com/`
+
+Once an account is setup login to the AWS management console to setup an EC2 instance
+
+## Create an Ec2 instanace
+Use the console to select the requirements for the instance.
+
+## Connect to the Ec2 instance
+After creating the SSH key pair, move the pem file from you Downloaded area to your ssh location.
+```bash
+mv ~/Downloads/aws-test-key.pem ~/.ssh/.
+```
+
+Change the permissions to read only by you
+```bash
+cd ~/.ssh
+chmod 400 aws-test-key.pem
+```
+
+Use ssh to connect to the new instance. The instance name will change and can be accessed from the EC2 instance page by selecting "Connect to your instance" button.
+
+![alt text](EC2-instance-launched.png)
+
+The Instance page will have the commands you need to connect to your instance.
+
+![alt text](EC2-how-to-connect.png)
+
+When the ssh command connects you will be the ubuntu user and have a minimal set of account files (dot files) in the ubuntu user home directory
+
+### Terminate the instance
+Terminate the instance when you are done using the instance to save on charges
+
+Navigate to the instance status page and select terminate from the 'instance state' drop down menu.
+
+![alt text](Ec2-terminate.png)
