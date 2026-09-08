@@ -37,6 +37,13 @@ Use this page to create or login to an account:
 
 Once an account is setup login to the AWS management console to setup an EC2 instance
 
+### NOTE:
+With AWS setting up instances, assocatiated and allocated IPs, and domain names can cost you money.
+
+- Be sure to Terminate Instances as running and stopped instances allocate AWS resources.
+- Be sure to delete associated and allocated Elastic IPs, these incur small charges when allocated/associated.
+- Domain names cost money too, if not using make sure to get rid of it 
+
 ## Create an EC2 instanace
 Use the console to select the requirements for the instance.
 1. Launch an Instance
@@ -246,3 +253,12 @@ nslookup jjklug.site
 If all is good, you should be able to access your web site via your domain name in your browser.
 
 My example using my domain name: 'https://jjklug.site'
+
+If all is not good, restart nginx and re-run certbot
+```bash
+# restart nginx
+sudo systemctl restart nginx
+sudo certbot --nginx -d jjklug.site
+```
+
+Retry in browser: 'https://jjklug.site'
